@@ -7,8 +7,8 @@ import numpy as np
 
 ### Config
 st.set_page_config(
-    page_title="E-commerce",
-    page_icon="💸 ",
+    page_title="GetAround Dashboard",
+    page_icon="🚗",
     layout="wide"
 )
 
