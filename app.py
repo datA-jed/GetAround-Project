@@ -10,6 +10,6 @@ def load_data(nrows):
     data = pd.read_json(DATA_URL)
     return data.head(nrows)
 
-data = load_data(50)
+data = load_data(5000)
 
 st.write(data)
