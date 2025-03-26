@@ -4,6 +4,14 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 
+
+### Config
+st.set_page_config(
+    page_title="E-commerce",
+    page_icon="💸 ",
+    layout="wide"
+)
+
 DATA_URL = "https://raw.githubusercontent.com/datA-jed/GetAround-Project/refs/heads/main/processed_data.json"
 
 def load_data(nrows):
