@@ -14,10 +14,23 @@ st.set_page_config(
 
 DATA_URL = "https://raw.githubusercontent.com/datA-jed/GetAround-Project/refs/heads/main/dashboard/processed_data.json"
 
+st.title("GetAround Dashboard :green[_Analysis_] 🚗")
+
+st.markdown("""
+This app is a dashboard for the GetAround project. 
+""")
+
+with st.expander("Watch this video to understand the concept of GetAround  📺"):
+    st.video("https://www.youtube.com/watch?v=3LyzwpGSfzE")
+
+@st.cache_data
 def load_data(nrows):
     data = pd.read_json(DATA_URL)
     return data.head(nrows)
 
+st.subheader("GetaRound Data Analysis")
+st.markdown("_This dataset contains information about the GetAround project_")
 data = load_data(5000)
-
-st.write(data)
+if st.checkbox('Show raw data'):
+    st.subheader('Raw data')
+    st.write(data)
