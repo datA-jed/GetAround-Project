@@ -83,7 +83,7 @@ col1.metric("Number of mobile Checkin", (data["checkin_type"]=='mobile').sum(), 
 col2.metric("Number of Connect Checkin", (data["checkin_type"]=='connect').sum(), border=True)
 
 
-color_map = {
+color_state_map = {
     'On Time Checkout': '#00CC96',    
     'Canceled': '#EF553B',         
     'Delayed Checkout': '#FFA15A',  
@@ -92,14 +92,27 @@ color_map = {
 }
 col1, col2 = st.columns(2)
 with col1:
-    fig = px.pie(data, names='state', title='Checkout rental state', color='state', color_discrete_map=color_map)
+    fig = px.pie(data, names='state', title='Checkout rental state', color='state', color_discrete_map=color_state_map)
     st.plotly_chart(fig)
 
 with col2:
     fig = px.pie(data, names='checkin_type', title='Checkin type', color='checkin_type')
     st.plotly_chart(fig)    
 
+
+color_impact_map = {
+    'No Impact': '#00CC96',    
+    'Canceletion': '#EF553B',         
+    'Impacted': '#FFA15A',  
+       
+    
+}
 col1, col2 = st.columns(2)
 with col1:
-    fig = px.pie(data, names='impact_of_previous_rental_delay', title='Impact of previous rental delay', color='impact_of_previous_rental_delay')
+    fig = px.pie(data[data["impact_of_previous_rental_delay"]!="No previous rental informations"]
+                 , names='impact_of_previous_rental_delay', title='Impact of previous rental delay', 
+                 color='impact_of_previous_rental_delay', color_discrete_map=color_impact_map)
     st.plotly_chart(fig)
+
+with col2:
+    col2.metric("Average delay of previous rental (min)", (round(data["previous_rental_checkout_delay_in_minutes"].mean(), 2)), border=True)
