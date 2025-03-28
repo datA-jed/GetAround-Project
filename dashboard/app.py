@@ -70,8 +70,7 @@ st.subheader("Interesting Metrics")
 col1, col2, col3 = st.columns(3)
 col1.metric("Total of unique cars", total_unique_cars, border=True)
 col2.metric("Total of rentals", data["rental_id"].nunique(), border=True)
-col3.metric("% of multiple rentals for the same car", percentage, border=True)
-
+col3.metric("% of rented car more than 1 time  ", percentage, border=True)
 
 
 col1, col2, col3 = st.columns(3)
@@ -82,3 +81,25 @@ col3.metric("Min time delta between two rentals (min)", (data["time_delta_with_p
 col1, col2 = st.columns(2)
 col1.metric("Number of mobile Checkin", (data["checkin_type"]=='mobile').sum(), border=True)
 col2.metric("Number of Connect Checkin", (data["checkin_type"]=='connect').sum(), border=True)
+
+
+color_map = {
+    'On Time Checkout': '#00CC96',    
+    'Canceled': '#EF553B',         
+    'Delayed Checkout': '#FFA15A',  
+    'Unknown State': '#636EFA',   
+    
+}
+col1, col2 = st.columns(2)
+with col1:
+    fig = px.pie(data, names='state', title='Checkout rental state', color='state', color_discrete_map=color_map)
+    st.plotly_chart(fig)
+
+with col2:
+    fig = px.pie(data, names='checkin_type', title='Checkin type', color='checkin_type')
+    st.plotly_chart(fig)    
+
+col1, col2 = st.columns(2)
+with col1:
+    fig = px.pie(data, names='impact_of_previous_rental_delay', title='Impact of previous rental delay', color='impact_of_previous_rental_delay')
+    st.plotly_chart(fig)
