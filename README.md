@@ -12,4 +12,4 @@ Développer des applications déployées en ligne, comme un dashboard de visuali
 # Deliverables
 - Web Dashboard Analysis -> https://data-jed-getaround-dashboard.hf.space
 - MLflow Tracking Server -> https://data-jed-dsfs-mlflow.hf.space
-- Web API prédictions de prix -> https://data-jed-ml-api-getaround.hf.space
+- Web API prédictions de prix -> https://data-jed-ml-api-getaround.hf.space/docs
