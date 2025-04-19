@@ -48,7 +48,7 @@ numeric_features = X.select_dtypes(include=[np.number]).columns
 categorical_features = X.select_dtypes(exclude=[np.number]).columns
 
 # Démarrer le run MLflow
-with mlflow.start_run(experiment_id=experiment.experiment_id, run_name="linear_regression_model") as run:
+with mlflow.start_run(experiment_id=experiment.experiment_id, run_name="linear_regression_model_2") as run:
 
     # Logger les paramètres du split des données
     mlflow.log_param("test_size", 0.2)
