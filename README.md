@@ -3,7 +3,7 @@
  ## 2 - Prédiction des prix de locations en fonctions des caractéristiques de la voiture pour les propriétaires baileurs
 
 Ce projet est réalisé dans le cadre de ma certification "Concepteur, développeur en science des données" et de mon programme Fullstack Data Science & Engineering chez Jedha
-
+Il rentre dans la validation du bloc 5 - Déploiement
 
 # But du projet
 Développer des applications déployées en ligne, comme un dashboard de visualisation ainsi qu'une API pour intérroger un modèle de Machine Learning
